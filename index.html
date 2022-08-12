@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Pokémon moves</h1>
+      <form id="inputForm">
+        <label
+          >Pokémon name: <input id="pokemonName" type="text" value="clefairy"
+        /></label>
+        <label>Result: <output id="output"></output></label>
+        <button type="submit">Update</button>
+      </form>
+      <aside>
+        <p>
+          Write an async function <code>getPokemonMove(name)</code> in the
+          <code>script.js</code> that uses <code>fetch()</code> to load Pokémon
+          data and returns a string like "The first move of X is Y and has
+          accuracy Z". The result of this function will be displayed here.
+        </p>
+      </aside>
+    </main>
+    <script src="script.js"></script>
+    <script type="module">
+      const input = document.querySelector('#pokemonName');
+      const output = document.querySelector('#output');
+
+      async function update() {
+        try {
+          output.innerText = 'Loading...';
+          const pokemonMoveText = await getPokemonMove(input.value);
+          output.classList.remove('error');
+          output.innerText = pokemonMoveText;
+        } catch (e) {
+          output.classList.add('error');
+          output.innerText = e;
+        }
+      }
+
+      document.querySelector('#inputForm').onsubmit = function (e) {
+        e.preventDefault();
+        update();
+      };
+
+      update();
+    </script>
+  </body>
+</html>

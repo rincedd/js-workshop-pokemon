@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+  line-height: 1.5;
+}
+
+main {
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.error {
+  color: red;
+}
+
+output {
+  background-color: rgb(229, 241, 238);
+}
+
+label {
+  display: block;
+}
+
+aside {
+  font-size: small;
+  color: rgb(140, 140, 140);
+  margin-top: 32px;
+}
